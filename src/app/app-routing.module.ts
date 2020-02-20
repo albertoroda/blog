@@ -6,9 +6,11 @@ import { DetalleComponent } from './detalle/detalle.component';
 
 
 const routes: Routes = [
+  { path: '', pathMatch: 'full', redirectTo: 'blog' },
   { path: 'blog', component: BlogComponent },
   { path: 'formulario', component: FormularioComponent },
-  { path: 'detalle/:postTitulo', component: DetalleComponent }
+  { path: 'detalle/:postTitulo', component: DetalleComponent },
+  { path: '**', redirectTo: 'blog' }
 ];
 
 @NgModule({
