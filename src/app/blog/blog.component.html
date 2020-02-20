@@ -1,0 +1,27 @@
+<div class="container-fluid row justify-content-around">
+    <select class="form-control col-11" (change)="manejarChange($event)">
+        <option value="">Todos</option>
+        <option value="Animales">Animales</option>
+        <option value="Viajes">Viajes</option>
+        <option value="Tecnología">Tecnología</option>
+    </select>
+    <div class="card mb-3 floar-right" style="max-width: 540px;" *ngFor="let post of arrPost">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src={{post.imagen}} class="card-img" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h4 class="card-title">{{post.titulo}}</h4>
+                    <p class="card-text">{{post.autor}}</p>
+                    <p class="card-text">{{post.texto}}</p>
+                    <p class="card-text"><small class="text-muted">{{post.fecha}}</small></p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{post.categoria}}</li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

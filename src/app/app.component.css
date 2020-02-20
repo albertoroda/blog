@@ -1,0 +1,19 @@
+h1, h3{
+    color: white;
+}
+
+aside{
+    
+    height: 100%;
+}
+
+.boton{
+    margin: 0.7em;
+}
+.nav-link{
+    color: white;
+}
+
+.nav-link:hover{
+    color: wheat;
+}
