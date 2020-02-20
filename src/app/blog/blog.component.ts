@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { PostService } from '../post.service';
 import { Post } from '../models/posts';
 
@@ -9,7 +9,9 @@ import { Post } from '../models/posts';
 })
 export class BlogComponent implements OnInit {
 
+
   arrPost: Post[];
+  post: Post;
 
   constructor(private postService: PostService) {
     this.arrPost = this.postService.getAllPost();
@@ -25,5 +27,11 @@ export class BlogComponent implements OnInit {
       this.arrPost = this.postService.getPostsByCategoria($event.target.value);
     }
   }
+
+  vistaDetalle($event) {
+    console.log($event.target.value)
+  }
+
+
 
 }

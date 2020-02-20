@@ -1,0 +1,11 @@
+img{
+    max-width: 100%;
+}
+.detalle{
+background-color: teal;
+text-align: center;
+color: white;
+}
+button{
+    margin: 1em;
+}

@@ -6,6 +6,7 @@ import { Post } from '../app/models/posts';
 })
 export class PostService {
   arrPost: Post[];
+  post: Post;
 
   constructor() {
     this.arrPost = [
@@ -20,12 +21,6 @@ export class PostService {
 
   }
 
-
-  // agregarPost(pDatos) {
-  //   this.arrPost.push(pDatos);
-  //   console.log(this.arrPost);
-  // }
-
   agregarPost(pDatos) {
     this.arrPost.push(pDatos);
     console.log(this.arrPost);
@@ -38,10 +33,29 @@ export class PostService {
     } else {
       this.arrPost = this.arrPost;
     }
-    return this.arrPost
+    return this.arrPost;
   }
 
   getPostsByCategoria(cat) {
     return this.arrPost.filter(post => post.categoria === cat);
+  }
+
+  eliminarPost(post) {
+    for (let i = 0; i < this.arrPost.length; i++) {
+      if (this.arrPost[i].titulo === post.titulo) {
+        this.arrPost.splice(i, 1);
+        localStorage.removeItem('post');
+        this.arrPost = this.arrPost;
+
+        console.log(this.arrPost)
+      }
+    }
+  }
+
+  getByIdPromise(ptitulo: string): Promise<Post> {
+    const prom = new Promise<Post>((resolve, reject) => {
+      resolve(this.arrPost.find(item => item.titulo === ptitulo));
+    });
+    return prom;
   }
 }
