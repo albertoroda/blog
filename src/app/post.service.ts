@@ -21,9 +21,15 @@ export class PostService {
   }
 
 
+  // agregarPost(pDatos) {
+  //   this.arrPost.push(pDatos);
+  //   console.log(this.arrPost);
+  // }
+
   agregarPost(pDatos) {
     this.arrPost.push(pDatos);
     console.log(this.arrPost);
+    localStorage.setItem('post', JSON.stringify(this.arrPost));
   }
 
   getAllPost() {
