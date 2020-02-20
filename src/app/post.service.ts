@@ -33,7 +33,12 @@ export class PostService {
   }
 
   getAllPost() {
-    return this.arrPost;
+    if (localStorage.getItem('post')) {
+      this.arrPost = JSON.parse(localStorage.getItem('post'));
+    } else {
+      this.arrPost = this.arrPost;
+    }
+    return this.arrPost
   }
 
   getPostsByCategoria(cat) {
