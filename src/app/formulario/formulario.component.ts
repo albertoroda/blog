@@ -13,7 +13,7 @@ export class FormularioComponent implements OnInit {
   formularioEnviado: boolean;
   fecha: Date;
 
-  constructor(private PostService: PostService) {
+  constructor(private postService: PostService) {
     this.fecha = new Date();
     this.formularioEnviado = false;
     this.formulario = new FormGroup({
@@ -45,7 +45,7 @@ export class FormularioComponent implements OnInit {
 
   async onSubmit() {
     this.formularioEnviado = true;
-    this.PostService.agregarPost(this.formulario.value);
+    this.postService.agregarPost(this.formulario.value);
     this.formulario.reset();
   }
 
